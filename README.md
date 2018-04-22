@@ -1,59 +1,40 @@
-# Hello Google App Engine for Java™
+# Java Server Pages based Hello World app
 
-[![Build
-Status](https://travis-ci.org/GoogleCloudPlatform/appengine-try-java.svg?branch=master)](https://travis-ci.org/GoogleCloudPlatform/appengine-try-java)
+## Requirements
+* [Apache Maven](http://maven.apache.org) 3.3.9 or greater
+* [Google Cloud SDK](https://cloud.google.com/sdk/)
+* `gcloud components install app-engine-java`
+* `gcloud components update`
 
-This sample shows you how to deploy a simple "Hello World" application to
-[Google App Engine](https://cloud.google.com/appengine/docs/java/).
+## Setup
 
-## Before you begin
+Use either:
 
-1.  Download and install the [Google Cloud
-    SDK](https://cloud.google.com/sdk/docs/).
-1.  [Install and configure Apache Maven](http://maven.apache.org/index.html).
-1.  [Create a new Google Cloud Platform project, or use an existing
-		one](https://console.cloud.google.com/project).
-1.  Initialize the Cloud SDK.
+* `gcloud init`
+* `gcloud beta auth application-default login`
 
-        gcloud init
+We support building with [Maven](http://maven.apache.org/), [Gradle](https://gradle.org), and [IntelliJ IDEA](https://cloud.google.com/tools/intellij/docs/).
+The samples have files to support both Maven and Gradle.  To use the IDE plugins, see the documentation pages above.
 
-1.  Install the Cloud SDK `app-engine-java` component.
+## Maven
+[Using Maven and the App Engine Plugin](https://cloud.google.com/appengine/docs/flexible/java/using-maven)
+& [Maven Plugin Goals and Parameters](https://cloud.google.com/appengine/docs/flexible/java/maven-reference)
+### Running locally
 
-        gcloud components install app-engine-java
+    $ mvn jetty:run-exploded
+  
+### Deploying
 
-## Deploying to App Engine
+    $ mvn appengine:deploy
 
-To run the application locally, use the [Maven App Engine
-plugin](https://cloud.google.com/appengine/docs/java/tools/using-maven).
+## Gradle
+[Using Gradle and the App Engine Plugin](https://cloud.google.com/appengine/docs/flexible/java/using-gradle) 
+& [Gradle Tasks and Parameters](https://cloud.google.com/appengine/docs/flexible/java/gradle-reference)
+### Running locally
 
-    mvn clean appengine:run
+    $ gradle jettyRun
 
-View the app at [localhost:8080](http://localhost:8080).
+### Deploying
 
-To deploy the app to App Engine, run
-
-    mvn clean appengine:deploy
-
-After the deploy finishes, you can view your application at
-`https://YOUR_PROJECT.appspot.com`, where `YOUR_PROJECT` is your Google Cloud
-project ID. You can see the new version deployed on the [App Engine section of
-the Google Cloud Console](https://console.cloud.google.com/appengine/versions).
-
-## Next steps
-
-1.  Read the [App Engine
-    documentation](https://cloud.google.com/appengine/docs/java/).
-1.  Explore the other [Google Cloud Platform sample
-    applications](https://github.com/GoogleCloudPlatform/java-docs-sample) for
-    Java™.
-
-## Contributing changes
-
-* See [CONTRIBUTING.md](CONTRIBUTING.md)
-
-* ## Licensing
-
-* See [LICENSE](LICENSE)
-
-Java is a registered trademark of Oracle Corporation and/or its affiliates.
+    $ gradle appengineDeploy
 
